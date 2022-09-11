@@ -1,1 +1,76 @@
-<p>pokemon-detail works!</p>
+<app-navigation-bar [screenStatus]="'detail'"></app-navigation-bar>
+
+<div class="parent" *ngIf="pokemonDetail">
+    <div class="pokemon-name">
+        <h1>{{pokemonDetail.name}}</h1>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+          <div class="col-sm details-left">
+            1
+          </div>
+          <div class="col-sm details-center">
+            <img class="pokemon-image" src="{{pokemonDetail.sprites.other.dream_world.front_default}}" alt="{{pokemonDetail.name}}">
+          </div>
+          <div class="col-sm details-right">
+            <div class="row">
+                <div class="col-sm">
+                    <p>HP</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.HP].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Attack</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.ATTACK].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Defence</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.DEFENCE].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Special Attack</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPECIAL_ATTACK].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Special defence</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPECIAL_DEFENCE].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Speed</p>
+                </div>
+                <div class="col-sm">
+                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPEED].base_stat" [unit]="''"></p-progressBar>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Total</p>
+                </div>
+                <div class="col-sm">
+                    <p>{{pokemonDetail.totalStats}}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

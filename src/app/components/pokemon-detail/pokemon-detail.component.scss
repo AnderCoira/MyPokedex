@@ -1,3 +1,27 @@
-p {
-    color: white;
+.parent {
+    color: #FFF;
+    margin-top: 20px;
+}
+
+.pokemon-name {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.details-left {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.details-center {
+    text-align: center;
+}
+
+.details-right {
+    text-align: right;
+}
+
+.pokemon-image {
+    width: 100%;
 }

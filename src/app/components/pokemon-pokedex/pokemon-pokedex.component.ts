@@ -12,7 +12,6 @@ export class PokemonPokedexComponent implements OnInit {
   pokemonAmount: Number = 1150;
   allThePokemons: PokemonDetail[] = [];
   filteredPokemons: PokemonDetail[] = [];
-  searchValue: String = '';
 
   constructor(private service: MainService) { }
 
@@ -57,13 +56,13 @@ export class PokemonPokedexComponent implements OnInit {
    });
   }
 
-  searchPokemon(){
+  searchPokemon(e: any){
     let _filterPokemons;
-    if (!this.searchValue.trim().length) {
+    if (!e.trim().length) {
         _filterPokemons = this.allThePokemons;
     }else {
         _filterPokemons = this.allThePokemons.filter((pokemon) => {
-            return pokemon.name.toLowerCase().startsWith(this.searchValue.toLowerCase());
+            return pokemon.name.toLowerCase().startsWith(e.toLowerCase());
         });
     }
     this.filteredPokemons = _filterPokemons;

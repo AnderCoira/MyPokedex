@@ -28,6 +28,7 @@ export interface PokemonDetail {
   species: Ability;
   sprites: Sprites;
   stats: Stat[];
+  totalStats: number;
   types: Type[];
   weight: number;
 }

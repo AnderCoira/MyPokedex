@@ -11,7 +11,7 @@
 }
 
 .pokemon-type {
-    margin-top: 5px;
+    width: 30px;
 }
 
 .pokemonCard:hover {
@@ -21,10 +21,6 @@
     -webkit-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
-}
-
-.pokemon-type {
-    width: 30px;
 }
 
 .row {

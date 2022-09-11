@@ -10,9 +10,11 @@ import { PokemonPokedexComponent } from './components/pokemon-pokedex/pokemon-po
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 import {BlockUIModule} from 'primeng/blockui';
 import {TooltipModule} from 'primeng/tooltip';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import {TooltipModule} from 'primeng/tooltip';
     PokemonPokedexComponent,
     PokemonCardComponent,
     PokemonDetailComponent,
-    PokemonLoaderComponent
+    PokemonLoaderComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {TooltipModule} from 'primeng/tooltip';
     BlockUIModule,
     HttpClientModule,
     FormsModule,
-    TooltipModule
+    TooltipModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

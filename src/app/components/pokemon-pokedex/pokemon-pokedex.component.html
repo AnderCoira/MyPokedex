@@ -1,10 +1,4 @@
-<nav class="navbar sticky-top">
-    <a class="navbar-brand">Pokédex</a>
-    <form class="form-inline">
-      <input (keyup)="searchPokemon()" [(ngModel)]="searchValue" class="form-control mr-sm-2" placeholder="Search..." aria-label="Search" name="pokeSearch">
-    </form>
-</nav>
-
+<app-navigation-bar (searchPokemonEmitter)="searchPokemon($event)" [screenStatus]="'pokedex'"></app-navigation-bar>
 <ng-template [ngIf]="filteredPokemons.length >= pokemonAmount">
     <div class="parent">
         <div class="row gx-1 ">
