@@ -1,0 +1,10 @@
+<div class="pokemonCard" *ngIf="pokemonDetail">
+    <h4>{{pokemonDetail.id}}</h4>
+    <h6>{{pokemonDetail.name}}</h6>
+    <img src="{{pokemonDetail.sprites.front_default}}" alt="{{pokemonDetail.name}}">
+    <div class="row">
+        <div class="col" *ngFor="let type of pokemonDetail.types;let i=index;">
+            <img class="pokemon-type" src="{{type.type.name}}" alt="">
+        </div>
+    </div>
+</div>
