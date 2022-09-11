@@ -27,8 +27,8 @@ export class PokemonPokedexComponent implements OnInit {
           this.service.getPokemonByName(pokemon.name).subscribe({
             next: res => {
               //Changing first letter of the pokemons to uppercase and shortenning big names
-              res.name = res.name.charAt(0).toUpperCase() + res.name.slice(1);
               res.original_name = res.name;
+              res.name = res.name.charAt(0).toUpperCase() + res.name.slice(1);
               if(res.name.length > 17) {
                 res.name = res.name.substring(0,14) + '...';
               }

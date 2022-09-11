@@ -8,8 +8,8 @@
 <ng-template [ngIf]="filteredPokemons.length >= pokemonAmount">
     <div class="parent">
         <div class="row gx-1 ">
-          <div class="col-xl-1 col-md-4 col-sm-6" *ngFor="let pokemon of filteredPokemons;let i=index;">
-            <app-pokemon-card [pokemonDetail]="pokemon"></app-pokemon-card>
+          <div class="col-lg-2 col-md-4 col-sm-12" *ngFor="let pokemon of filteredPokemons;let i=index;">
+            <app-pokemon-card [pokemonDetail]="pokemon" routerLink="/pokemon/{{pokemon.original_name}}"></app-pokemon-card>
             </div>
         </div>
     </div>
