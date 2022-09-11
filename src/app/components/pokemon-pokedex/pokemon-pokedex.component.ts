@@ -9,7 +9,7 @@ import { PokemonDetail } from 'src/app/interfaces/main-interface';
 })
 export class PokemonPokedexComponent implements OnInit {
 
-  pokemonAmount: Number = 150;
+  pokemonAmount: Number = 1150;
   allThePokemons: PokemonDetail[] = [];
 
   constructor(private service: MainService) { }

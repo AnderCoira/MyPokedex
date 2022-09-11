@@ -8,7 +8,7 @@
 <ng-template [ngIf]="allThePokemons.length >= pokemonAmount">
     <div class="parent">
         <div class="row gx-1 ">
-          <div class="col-xl-1 col-lg-2 col-md-4 col-sm-6" *ngFor="let pokemon of allThePokemons;let i=index;">
+          <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6" *ngFor="let pokemon of allThePokemons;let i=index;">
             <app-pokemon-card [pokemonDetail]="pokemon"></app-pokemon-card>
             </div>
         </div>
