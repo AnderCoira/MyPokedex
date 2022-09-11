@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import { PokemonPokedexComponent } from './components/pokemon-pokedex/pokemon-pokedex.component';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
 
 import {BlockUIModule} from 'primeng/blockui';
-import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
+import {TooltipModule} from 'primeng/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-load
     BrowserAnimationsModule,
     BlockUIModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

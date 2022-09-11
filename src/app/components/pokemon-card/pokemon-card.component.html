@@ -1,6 +1,9 @@
 <div class="pokemonCard" *ngIf="pokemonDetail">
     <h4>{{pokemonDetail.id}}</h4>
-    <h6>{{pokemonDetail.name}}</h6>
+    <h6 *ngIf="pokemonDetail.original_name.length <= 17; else longName">{{pokemonDetail.name}}</h6>
+    <ng-template #longName>
+        <h6 pTooltip="{{pokemonDetail.original_name}}" tooltipPosition="top">{{pokemonDetail.name}}</h6>
+    </ng-template>
     <img class="pokemon-img" src="{{pokemonDetail.sprites.other.home.front_default}}" alt="{{pokemonDetail.name}}">
     <div class="row justify-content-center pokemon-types">
         <div class="col-2" *ngFor="let type of pokemonDetail.types;let i=index;">
