@@ -1,22 +1,22 @@
 <nav class="navbar sticky-top">
     <a class="navbar-brand">Pokédex</a>
     <form class="form-inline">
-      <input (keypress)="searchPokemon($event)" class="form-control mr-sm-2" placeholder="Search..." aria-label="Search">
+      <input (keyup)="searchPokemon()" [(ngModel)]="searchValue" class="form-control mr-sm-2" placeholder="Search..." aria-label="Search" name="pokeSearch">
     </form>
 </nav>
 
-<ng-template [ngIf]="allThePokemons.length >= pokemonAmount">
+<ng-template [ngIf]="filteredPokemons.length >= pokemonAmount">
     <div class="parent">
         <div class="row gx-1 ">
-          <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6" *ngFor="let pokemon of allThePokemons;let i=index;">
+          <div class="col-xl-1 col-md-4 col-sm-6" *ngFor="let pokemon of filteredPokemons;let i=index;">
             <app-pokemon-card [pokemonDetail]="pokemon"></app-pokemon-card>
             </div>
         </div>
     </div>
 </ng-template>
 
-<ng-template [ngIf]="allThePokemons.length < pokemonAmount">
+<ng-template [ngIf]="filteredPokemons.length < pokemonAmount">
     <app-pokemon-loader></app-pokemon-loader>
 </ng-template>
 
-<p-blockUI [blocked]="allThePokemons.length < pokemonAmount"></p-blockUI>
+<p-blockUI [blocked]="filteredPokemons.length < pokemonAmount"></p-blockUI>

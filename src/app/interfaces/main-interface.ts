@@ -22,6 +22,7 @@ export interface PokemonDetail {
   location_area_encounters: string;
   moves: Move[];
   name: string;
+  original_name: string;
   order: number;
   past_types: any[];
   species: Ability;
