@@ -5,7 +5,7 @@
             <h6 *ngIf="pokemonDetail.original_name.length <= 17; else longName">{{pokemonDetail.name}}</h6>
         </div>
         <div class="col pokemon-type-parent">
-            <img *ngFor="let type of pokemonDetail.types;let i=index;" class="pokemon-type" src="{{type.type.name}}" alt="">
+            <img *ngFor="let type of pokemonDetail.types;let i=index;" class="pokemon-type" src="../../../assets/types/{{type.type.name}}.svg" alt="">
         </div>
     </div>
     <ng-template #longName>

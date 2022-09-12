@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PokemonAllMain, PokemonDetail } from '../interfaces/main-interface';
+import { PokemonAbility, PokemonAllMain, PokemonDetail, PokemonMoves } from '../interfaces/main-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,14 @@ export class MainService {
 
   getPokemonByName(pokemonName: String){
     return this.http.get<PokemonDetail>(`${this.URL}/pokemon/${pokemonName}`);
+  }
+
+  getPokemonMoves(moveName: String){
+    return this.http.get<PokemonMoves>(`${this.URL}/move/${moveName}`);
+  }
+
+  getPokemonAbility(abilityName: String){
+    return this.http.get<PokemonAbility>(`${this.URL}/ability/${abilityName}`);
   }
 
 }

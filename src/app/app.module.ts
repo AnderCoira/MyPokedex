@@ -12,9 +12,10 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 import { PokemonLoaderComponent } from './components/pokemon-loader/pokemon-loader.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
-import {BlockUIModule} from 'primeng/blockui';
 import {TooltipModule} from 'primeng/tooltip';
 import {ProgressBarModule} from 'primeng/progressbar';
+import { TagModule } from 'primeng/tag';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -30,11 +31,12 @@ import {ProgressBarModule} from 'primeng/progressbar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    BlockUIModule,
     HttpClientModule,
     FormsModule,
     TooltipModule,
-    ProgressBarModule
+    ProgressBarModule,
+    TagModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

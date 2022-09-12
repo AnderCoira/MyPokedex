@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 import { POKEMON_STATS } from 'src/app/enums/pokemon-stats';
-import { PokemonDetail } from 'src/app/interfaces/main-interface';
+import { PokemonDetail, PokemonMoves } from 'src/app/interfaces/main-interface';
 import { MainService } from 'src/app/services/main.service';
 
 @Component({
@@ -14,6 +14,10 @@ export class PokemonDetailComponent implements OnInit {
   paramsPokemonName!: string;
   pokemonDetail!: PokemonDetail;
   POKEMON_STATS: typeof POKEMON_STATS = POKEMON_STATS;
+  pokemonMoves: PokemonMoves[] = [];
+  abilitiesDisplay: boolean = false;
+  pokemonAbilityText: any = undefined;
+  clickedPokemonAbility: any = undefined;
 
   constructor(private route: ActivatedRoute, private service: MainService) { }
 
@@ -42,12 +46,40 @@ export class PokemonDetailComponent implements OnInit {
           res.stats[POKEMON_STATS.SPEED].base_stat;
 
         this.pokemonDetail.name = this.pokemonDetail.name.toUpperCase();
-        console.log('Pokemon detail data -> ', this.pokemonDetail);
+
+        res.moves.forEach(move => {
+          this.service.getPokemonMoves(move.move.name).subscribe({
+            next: res => {
+              this.pokemonMoves.push(res);
+            },
+            error: err => {
+              console.log(err);
+            }
+          });
+        });
       },
       error: err => {
         console.log(err);
       }
     });
+  }
+
+  abilityInfo(name:string){
+    this.abilitiesDisplay = true;
+    this.clickedPokemonAbility = name;
+    this.service.getPokemonAbility(name).subscribe({
+      next: res => {
+        this.pokemonAbilityText = res.effect_entries[1].effect;
+      },
+      error: err => {
+        console.log(err);
+      }
+    });
+  }
+
+  emptyAbilityData(){
+    this.clickedPokemonAbility = undefined;
+    this.pokemonAbilityText = undefined;
   }
 
 }

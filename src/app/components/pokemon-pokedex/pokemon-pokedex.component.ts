@@ -48,7 +48,6 @@ export class PokemonPokedexComponent implements OnInit {
           });
         });
         this.pokemonAmount = res.results.length;
-        console.log('All the pokemons -> ', this.allThePokemons);
       },
       error: err => {
         console.log(err);

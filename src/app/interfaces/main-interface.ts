@@ -230,3 +230,151 @@ interface Ability {
   name: string;
   url: string;
 }
+
+export interface PokemonMoves {
+  accuracy: number;
+  contest_combos: Contestcombos;
+  contest_effect: Contesteffect;
+  contest_type: Usebefore;
+  damage_class: Usebefore;
+  effect_chance?: any;
+  effect_changes: any[];
+  effect_entries: Effectentry[];
+  flavor_text_entries: Flavortextentry[];
+  generation: Usebefore;
+  id: number;
+  learned_by_pokemon: Usebefore[];
+  machines: any[];
+  meta: Meta;
+  name: string;
+  names: Name[];
+  past_values: Pastvalue[];
+  power?: any;
+  pp: number;
+  priority: number;
+  stat_changes: Statchange[];
+  super_contest_effect: Contesteffect;
+  target: Usebefore;
+  type: Usebefore;
+}
+
+interface Statchange {
+  change: number;
+  stat: Usebefore;
+}
+
+interface Pastvalue {
+  accuracy?: any;
+  effect_chance?: any;
+  effect_entries: any[];
+  power?: any;
+  pp?: any;
+  type?: any;
+  version_group: Usebefore;
+}
+
+interface Name {
+  language: Usebefore;
+  name: string;
+}
+
+interface Meta {
+  ailment: Usebefore;
+  ailment_chance: number;
+  category: Usebefore;
+  crit_rate: number;
+  drain: number;
+  flinch_chance: number;
+  healing: number;
+  max_hits?: any;
+  max_turns?: any;
+  min_hits?: any;
+  min_turns?: any;
+  stat_chance: number;
+}
+
+interface Flavortextentry {
+  flavor_text: string;
+  language: Usebefore;
+  version_group: Usebefore;
+}
+
+interface Effectentry {
+  effect: string;
+  language: Usebefore;
+  short_effect: string;
+}
+
+interface Contesteffect {
+  url: string;
+}
+
+interface Contestcombos {
+  normal: Normal;
+  super: Super;
+}
+
+interface Super {
+  use_after?: any;
+  use_before?: any;
+}
+
+interface Normal {
+  use_after?: any;
+  use_before: Usebefore[];
+}
+
+interface Usebefore {
+  name: string;
+  url: string;
+}
+
+export interface PokemonAbility {
+  effect_changes: Effectchange[];
+  effect_entries: Effectentry2[];
+  flavor_text_entries: Flavortextentry[];
+  generation: Language;
+  id: number;
+  is_main_series: boolean;
+  name: string;
+  names: Name[];
+  pokemon: Pokemon[];
+}
+
+interface Pokemon {
+  is_hidden: boolean;
+  pokemon: Language;
+  slot: number;
+}
+
+interface Name {
+  language: Language;
+  name: string;
+}
+
+interface Flavortextentry {
+  flavor_text: string;
+  language: Language;
+  version_group: Language;
+}
+
+interface Effectentry2 {
+  effect: string;
+  language: Language;
+  short_effect: string;
+}
+
+interface Effectchange {
+  effect_entries: Effectentry[];
+  version_group: Language;
+}
+
+interface Effectentry {
+  effect: string;
+  language: Language;
+}
+
+interface Language {
+  name: string;
+  url: string;
+}
