@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/services/main.service';
 import { PokemonDetail } from 'src/app/interfaces/main-interface';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-pokemon-pokedex',
   templateUrl: './pokemon-pokedex.component.html',
-  styleUrls: ['./pokemon-pokedex.component.scss']
+  styleUrls: ['./pokemon-pokedex.component.scss'],
+  providers: [MessageService]
 })
 export class PokemonPokedexComponent implements OnInit {
 
@@ -13,7 +15,7 @@ export class PokemonPokedexComponent implements OnInit {
   allThePokemons: PokemonDetail[] = [];
   filteredPokemons: PokemonDetail[] = [];
 
-  constructor(private service: MainService) { }
+  constructor(private service: MainService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getAllPokemons(this.pokemonAmount);
@@ -44,6 +46,7 @@ export class PokemonPokedexComponent implements OnInit {
             },
             error: err => {
               console.log(err);
+              this.messageService.add({severity:'error', summary: 'Error', detail: 'There has been an error fetching the data. Please refresh the page'});
             }
           });
         });
@@ -51,6 +54,7 @@ export class PokemonPokedexComponent implements OnInit {
       },
       error: err => {
         console.log(err);
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'There has been an error fetching the data. Please refresh the page'});
       }
    });
   }

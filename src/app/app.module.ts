@@ -16,6 +16,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {ProgressBarModule} from 'primeng/progressbar';
 import { TagModule } from 'primeng/tag';
 import {DialogModule} from 'primeng/dialog';
+import {ToastModule} from 'primeng/toast';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {DialogModule} from 'primeng/dialog';
     TooltipModule,
     ProgressBarModule,
     TagModule,
-    DialogModule
+    DialogModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

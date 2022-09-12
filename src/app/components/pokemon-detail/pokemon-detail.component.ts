@@ -3,11 +3,13 @@ import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 import { POKEMON_STATS } from 'src/app/enums/pokemon-stats';
 import { PokemonDetail, PokemonMoves } from 'src/app/interfaces/main-interface';
 import { MainService } from 'src/app/services/main.service';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
-  styleUrls: ['./pokemon-detail.component.scss']
+  styleUrls: ['./pokemon-detail.component.scss'],
+  providers: [MessageService]
 })
 export class PokemonDetailComponent implements OnInit {
 
@@ -19,7 +21,7 @@ export class PokemonDetailComponent implements OnInit {
   pokemonAbilityText: any = undefined;
   clickedPokemonAbility: any = undefined;
 
-  constructor(private route: ActivatedRoute, private service: MainService) { }
+  constructor(private route: ActivatedRoute, private service: MainService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((param)=>{
@@ -54,12 +56,14 @@ export class PokemonDetailComponent implements OnInit {
             },
             error: err => {
               console.log(err);
+              this.messageService.add({severity:'error', summary: 'Error', detail: 'There has been an error fetching the data. Please refresh the page'});
             }
           });
         });
       },
       error: err => {
         console.log(err);
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'There has been an error fetching the data. Please refresh the page'});
       }
     });
   }
@@ -73,6 +77,7 @@ export class PokemonDetailComponent implements OnInit {
       },
       error: err => {
         console.log(err);
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'There has been an error fetching the data. Please refresh the page'});
       }
     });
   }

@@ -1,6 +1,6 @@
 <app-navigation-bar [screenStatus]="'detail'"></app-navigation-bar>
 
-<div class="parent" *ngIf="pokemonDetail">
+<div class="parent" *ngIf="pokemonDetail; else loader">
     <!-- POKEMON TITLE NAME -->
     <div class="pokemon-name">
         <h1>{{pokemonDetail.name}}</h1>
@@ -199,3 +199,5 @@
 <ng-template #loader>
     <app-pokemon-loader></app-pokemon-loader>
 </ng-template>
+
+<p-toast position="top-right"></p-toast>
