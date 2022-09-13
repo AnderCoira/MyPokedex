@@ -37,8 +37,17 @@ export class PokemonDetailComponent implements OnInit {
   getPokemonDetail(pokemonName: string) {
     this.service.getPokemonByName(pokemonName).subscribe({
       next: res => {
+        console.log('Detail -> ', res)
         this.pokemonDetail = res;
         this.pokemonDetail.original_name = res.name;
+
+        res.stats[POKEMON_STATS.HP].stat.name = 'HP';
+        res.stats[POKEMON_STATS.ATTACK].stat.name = 'Attack';
+        res.stats[POKEMON_STATS.DEFENCE].stat.name = 'Defence';
+        res.stats[POKEMON_STATS.SPECIAL_ATTACK].stat.name = 'Sp. Attack';
+        res.stats[POKEMON_STATS.SPECIAL_DEFENCE].stat.name = 'Sp. Defence';
+        res.stats[POKEMON_STATS.SPEED].stat.name = 'Speed';
+
         this.pokemonDetail.totalStats = 
           res.stats[POKEMON_STATS.HP].base_stat + 
           res.stats[POKEMON_STATS.ATTACK].base_stat + 

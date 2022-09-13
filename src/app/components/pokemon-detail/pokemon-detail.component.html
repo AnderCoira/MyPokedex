@@ -92,53 +92,13 @@
             <img *ngIf="!pokemonDetail.sprites.other.dream_world.front_default" class="pokemon-image" src="../../../assets/pokemons/missingno.png" alt="{{pokemonDetail.name}}">
           </div>
           <div class="col-sm details-right">
-            <!-- POKEMON LEFT STATS -->
-            <div class="row">
+            <!-- POKEMON RIGHT STATS -->
+            <div class="row" *ngFor="let stat of pokemonDetail.stats;let i=index;">
                 <div class="col-sm">
-                    <p class="left-p-title">HP</p>
+                    <p class="left-p-title">{{stat.stat.name}}</p>
                 </div>
                 <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.HP].base_stat" [unit]="''"></p-progressBar>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <p class="left-p-title">Attack</p>
-                </div>
-                <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.ATTACK].base_stat" [unit]="''"></p-progressBar>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <p class="left-p-title">Defence</p>
-                </div>
-                <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.DEFENCE].base_stat" [unit]="''"></p-progressBar>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <p class="left-p-title">Sp. Attack</p>
-                </div>
-                <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPECIAL_ATTACK].base_stat" [unit]="''"></p-progressBar>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <p class="left-p-title">Sp. defence</p>
-                </div>
-                <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPECIAL_DEFENCE].base_stat" [unit]="''"></p-progressBar>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm">
-                    <p class="left-p-title">Speed</p>
-                </div>
-                <div class="col-sm-8">
-                    <p-progressBar [value]="pokemonDetail.stats[POKEMON_STATS.SPEED].base_stat" [unit]="''"></p-progressBar>
+                    <p-progressBar [value]="stat.base_stat" [unit]="''"></p-progressBar>
                 </div>
             </div>
             <div class="row">
